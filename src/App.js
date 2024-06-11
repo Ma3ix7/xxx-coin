@@ -1,47 +1,35 @@
-.title {
-  color: #ffffff;
-  text-align: center;
-  font-size: 4vh;
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+function App() {
+  const [count, setCount] = useState(() => {
+    const savedCount = localStorage.getItem("count");
+    return savedCount !== null ? parseInt(savedCount, 10) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("count", count);
+  }, [count]);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div className="App">
+      <h2 className="title">XXX Coin</h2>
+      <p className="count-click">{count}</p>
+      <div className="coin-btn">
+        <button className="coin-button" onClick={handleClick}>
+          <img
+            src="https://i.postimg.cc/5NbYNHhq/boobs.jpg"
+            alt="Click me"
+            className="img-boobs"
+          />
+        </button>
+      </div>
+    </div>
+  );
 }
 
-.count-click {
-  padding-top: 5%;
-  color: #ffffff;
-  text-align: center;
-  font-size: 5vh;
-}
-
-.coin-btn {
-  padding-top: 10%;
-
-  text-align: center;
-
-  padding-bottom: 5%;
-}
-
-.coin-button {
-  text-align: center;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%; /* Делаем круглую форму */
-  background-color: #ffffff; /* Цвет фона */
-  color: rgb(0, 0, 0); /* Цвет текста */
-  border: none; /* Убираем границу */
-  text-align: center; /* Выравнивание текста по центру */
-  text-decoration: none;
-  display: inline-block;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-.App {
-  top: 0;
-  padding-top: 5%;
-  background-color: black;
-}
-
-.img-boobs {
-  text-align: center;
-  width: 45%;
-  height: 45%;
-  border-radius: 70%;
+export default App;
