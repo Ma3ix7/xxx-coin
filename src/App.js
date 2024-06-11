@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  // Загружаем сохраненное значение count из localStorage при инициализации состояния
   const [count, setCount] = useState(() => {
     const savedCount = localStorage.getItem("count");
     return savedCount !== null ? parseInt(savedCount, 10) : 0;
   });
 
   useEffect(() => {
-    // Сохраняем значение count в localStorage при его изменении
     localStorage.setItem("count", count);
-  }, [count]); // Зависимость от переменной count, чтобы эффект срабатывал при её изменении
+  }, [count]);
 
   const handleClick = () => {
     setCount(count + 1);
@@ -22,26 +20,24 @@ function App() {
       <h2 className="title">XXX Coin</h2>
       <p className="count-click">{count}</p>
       <div className="coin-btn">
-        <button className="" onClick={handleClick}>
+        <button onClick={handleClick}>
           <img
-            className="img-boobs"
+            className="coin-image"
             src="https://i.postimg.cc/5NbYNHhq/boobs.jpg"
-            alt="boobs"
+            alt="Click to increment counter"
           />
-        </a>
-        <speacer>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </speacer>
+        </button> {/* Исправленный закрывающий тег */}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );
