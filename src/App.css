@@ -1,41 +1,52 @@
+.App {
+  height: 100vh; /* Занимает весь доступный экран по высоте */
+  background-color: black; /* Черный фон */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Убираем внешние отступы */
+  padding: 0; /* Убираем внутренние отступы */
+}
+
 .title {
-  color: #ffffff;
+  color: #ffffff; /* Белый цвет текста */
   text-align: center;
-  font-size: 4vh;
+  font-size: 4vh; /* Размер шрифта зависит от высоты экрана */
+  margin: 20px 0; /* Отступы сверху и снизу */
 }
 
 .count-click {
-  padding-top: 5%;
   color: #ffffff;
   text-align: center;
-  font-size: 5vh;
+  font-size: 5vh; /* Больший размер шрифта для счетчика */
+  margin: 20px 0; /* Отступы сверху и снизу */
 }
 
 .coin-btn {
-  padding-top: 10%;
-  text-align: center;
-  padding-bottom: 5%;
+  width: 100%; /* Ширина кнопки равна ширине контейнера */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .coin-button {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: none;
-  display: inline-block;
-  cursor: pointer;
-  padding: 0; /* Убираем отступы внутри кнопки */
+  width: 60vw; /* Ширина кнопки в процентах от ширины экрана */
+  height: 60vw; /* Высота кнопки равна ширине для сохранения круглой формы */
+  max-width: 300px; /* Максимальная ширина кнопки */
+  max-height: 300px; /* Максимальная высота кнопки */
+  overflow: hidden; /* Скрываем выходящие за пределы круга части */
+  background-color: black; /* Цвет фона кнопки */
+  border: none; /* Убираем границу */
+  padding: 0; /* Убираем внутренние отступы */
+  cursor: pointer; /* Курсор в виде указателя */
 }
 
 .img-boobs {
-  width: 100%; /* Заполняет размер кнопки */
-  height: auto; /* Сохраняет пропорции */
-  border-radius: 50%; /* Делает изображение круглым */
-}
-
-.App {
-  top: 0;
-  padding-top: 5%;
-  background-color: black;
+  width: 100%; /* Заполняет ширину контейнера */
+  height: auto; /* Высота автоматически регулируется для сохранения пропорций */
+  border-radius: 50%; /* Круглая форма */
+  display: block; /* Убираем лишние отступы вокруг изображения */
+  object-fit: cover; /* Обеспечивает полное покрытие круга, обрезая лишнее */
 }
