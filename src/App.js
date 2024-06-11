@@ -22,7 +22,7 @@ function App() {
       <h2 className="title">XXX Coin</h2>
       <p className="count-click">{count}</p>
       <div className="coin-btn">
-        <a className="" onClick={handleClick}>
+        <button className="" onClick={handleClick}>
           <img
             className="img-boobs"
             src="https://i.postimg.cc/5NbYNHhq/boobs.jpg"
