@@ -1,51 +1,50 @@
-/* Основной стиль для контейнера приложения */
-.App {
-  padding-top: 5%;
-  background-color: black; /* Черный фон для всего приложения */
-  color: white; /* Белый цвет текста для контраста */
-  min-height: 100vh; /* Минимальная высота контейнера */
-  display: flex; /* Используем Flexbox */
-  flex-direction: column; /* Элементы в колонке */
-  align-items: center; /* Выравнивание элементов по центру */
-  justify-content: center; /* Центрирование содержимого */
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+function App() {
+  // Загружаем сохраненное значение count из localStorage при инициализации состояния
+  const [count, setCount] = useState(() => {
+    const savedCount = localStorage.getItem("count");
+    return savedCount !== null ? parseInt(savedCount, 10) : 0;
+  });
+
+  useEffect(() => {
+    // Сохраняем значение count в localStorage при его изменении
+    localStorage.setItem("count", count);
+  }, [count]); // Зависимость от переменной count, чтобы эффект срабатывал при её изменении
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div className="App">
+      <h2 className="title">XXX Coin</h2>
+      <p className="count-click">{count}</p>
+      <div className="coin-btn">
+        <a className="" onClick={handleClick}>
+          <img
+            className="img-boobs"
+            src="https://i.postimg.cc/5NbYNHhq/boobs.jpg"
+            alt="boobs"
+          />
+        </a>
+        <speacer>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </speacer>
+      </div>
+    </div>
+  );
 }
 
-/* Стили для заголовка */
-.title {
-  text-align: center;
-  font-size: 4vh; /* Размер шрифта относительно высоты экрана */
-}
-
-/* Стили для отображения счетчика кликов */
-.count-click {
-  font-size: 5vh; /* Размер шрифта больше, чем у заголовка */
-  margin-top: 2vh; /* Небольшой отступ сверху */
-}
-
-/* Общие стили для кнопки с монетой */
-.coin-btn {
-  margin-top: 5vh; /* Отступ сверху */
-  width: 100%; /* Ширина контейнера под кнопку */
-  display: flex; /* Используем Flexbox для выравнивания */
-  justify-content: center; /* Центрирование кнопки */
-}
-
-/* Стили для кнопки */
-.coin-button {
-  width: 30vh; /* Ширина и высота кнопки равны */
-  height: 30vh;
-  border-radius: 50%; /* Делаем круглую форму */
-  background-color: #ffffff; /* Белый цвет фона */
-  border: none; /* Убираем границу */
-  display: flex; /* Используем Flexbox внутри кнопки */
-  align-items: center; /* Центрирование изображения по вертикали */
-  justify-content: center; /* Центрирование изображения по горизонтали */
-  cursor: pointer; /* Курсор в виде указателя */
-}
-
-/* Стили для изображения внутри кнопки */
-.img-boobs {
-  width: 80%; /* Занимает 80% от размера кнопки */
-  height: auto; /* Высота подстраивается автоматически */
-  border-radius: 50%; /* Круглая форма изображения */
-}
+export default App;
