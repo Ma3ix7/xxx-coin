@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-
-function App() {
-  const [count, setCount] = useState(() => {
-    const savedCount = localStorage.getItem("count");
-    return savedCount !== null ? parseInt(savedCount, 10) : 0;
-  });
-
-  useEffect(() => {
-    localStorage.setItem("count", count);
-  }, [count]);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <div className="App">
-      <h2 className="title">XXX Coin</h2>
-      <p className="count-click">{count}</p>
-      <div className="coin-btn">
-        <button className="coin-button" onClick={handleClick}>
-          <img
-            src="https://i.postimg.cc/5NbYNHhq/boobs.jpg"
-            alt="Click me"
-            className="img-boobs"
-          />
-        </button>
-      </div>
-    </div>
-  );
+.title {
+  color: #ffffff;
+  text-align: center;
+  font-size: 4vh;
 }
 
-export default App;
+.count-click {
+  padding-top: 5%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 5vh;
+}
+
+.coin-btn {
+  padding-top: 10%;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.coin-button {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0; /* Убираем отступы внутри кнопки */
+}
+
+.img-boobs {
+  width: 100%; /* Заполняет размер кнопки */
+  height: auto; /* Сохраняет пропорции */
+  border-radius: 50%; /* Делает изображение круглым */
+}
+
+.App {
+  top: 0;
+  padding-top: 5%;
+  background-color: black;
+}
